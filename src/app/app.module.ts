@@ -8,7 +8,10 @@ import { ContentComponent } from './components/content/content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { TablaComponent } from './components/tabla/tabla.component';
-import { MatTableModule } from '@angular/material/table';
+import { EditarEstudianteComponent } from './components/editar-estudiante/editar-estudiante.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontSizePipe } from './pipes/font-size.pipe';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,15 @@ import { MatTableModule } from '@angular/material/table';
     NavbarComponent,
     ContentComponent,
     TablaComponent,
+    EditarEstudianteComponent,
+    FontSizePipe,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, MaterialModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

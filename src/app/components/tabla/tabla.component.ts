@@ -2,6 +2,8 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Estudiante } from '../../models/estudiante';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiante.component';
 
 @Component({
   selector: 'app-tabla',
@@ -13,70 +15,82 @@ export class TablaComponent {
     {
       nombre: 'Baby ',
       apellido: 'Rick',
-      grupo: 2,
       curso: 'ANGULAR',
       calificacion: 4.6,
-      aprobado: false,
+      correo: 'baby@gmail.com',
       sexo: 'Masculino',
+      becado: true,
     },
     {
-      nombre: 'Amy ',
+      nombre: 'Amy',
       apellido: 'Poopybutthole',
-
       sexo: 'femenino',
-      grupo: 2,
+      correo: 'amy@gmail.com',
       curso: 'REACT',
       calificacion: 8.6,
-      aprobado: true,
+
+      becado: true,
     },
     {
       nombre: 'Karen ',
       apellido: 'Entity',
-
       sexo: 'femenino',
-      grupo: 2,
+      correo: 'karen@gmail.com',
       curso: 'NODE ',
       calificacion: 7.7,
-      aprobado: true,
+      becado: false,
     },
     {
       nombre: 'Bearded ',
       apellido: 'Lady',
-
       sexo: 'masculino',
-      grupo: 2.8,
+      correo: 'bearded@gmail.com',
       curso: 'ANGULAR',
       calificacion: 8.4,
-      aprobado: true,
+      becado: true,
     },
     {
       nombre: 'Michael ',
       apellido: 'Jackson',
       sexo: 'masculino',
-      grupo: 4.7,
+      correo: 'michael@gmail.com',
       curso: 'NODE',
       calificacion: 4,
-      aprobado: false,
+      becado: false,
     },
     {
       nombre: 'Evil ',
       apellido: 'Morty',
       sexo: 'masculino',
-      grupo: 2,
+      correo: 'evil@gmail.com',
       curso: 'REACT',
       calificacion: 5.4,
-      aprobado: false,
+      becado: true,
     },
   ];
 
   dataSource: MatTableDataSource<Estudiante> =
     new MatTableDataSource<Estudiante>(this.estudiantes);
 
-  columnas: string[] = ['Nombre', 'Curso', 'Calificacion', 'Aprobado'];
+  constructor(private dialog: MatDialog) {}
+
+  columnas: string[] = [
+    'Nombre',
+    'Curso',
+    'Calificacion',
+    'Aprobado',
+    'Acciones',
+  ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  editarDatos(estudiante: Estudiante) {
+    const dialogRef = this.dialog.open(EditarEstudianteComponent, {
+      data: estudiante,
+    });
   }
 }

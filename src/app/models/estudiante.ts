@@ -1,9 +1,9 @@
 export interface Estudiante {
   nombre: string;
   apellido: string;
-  grupo: number;
   curso: string;
   calificacion: number;
-  aprobado: boolean;
+  correo: string;
   sexo: string;
+  becado: boolean;
 }

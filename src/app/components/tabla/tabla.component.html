@@ -5,7 +5,7 @@
 
     <ng-container matColumnDef="Nombre">
       <th mat-header-cell *matHeaderCellDef="">Nombre</th>
-      <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+      <td mat-cell *matCellDef="let element">{{element|fontSize}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Curso">
@@ -21,7 +21,31 @@
 
     <ng-container matColumnDef="Aprobado">
       <th mat-header-cell *matHeaderCellDef>Aprobado</th>
-      <td mat-cell *matCellDef="let element">{{element.aprobado?'reincribir':'recursar'}}</td>
+      <td mat-cell *matCellDef="let element">
+        <button *ngIf="element.aprobado" mat-button color="accent">
+          {{element.aprobado?'reincribir':'recursar'}}
+        </button>
+
+        <button *ngIf="!element.aprobado" mat-button color="warn">
+          {{element.aprobado?'reincribir':'recursar'}}
+        </button>
+
+      </td>
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="editarDatos(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </td>
+
+      </ng-container>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="columnas"></tr>
