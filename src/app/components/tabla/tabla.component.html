@@ -1,5 +1,8 @@
 <div class="container">
-  <h3>Lista de Estudiante</h3>
+
+
+  <h3 appFontSize>Lista de Estudiante</h3>
+
 
   <table mat-table [dataSource]="dataSource">
 
@@ -22,12 +25,15 @@
     <ng-container matColumnDef="Aprobado">
       <th mat-header-cell *matHeaderCellDef>Aprobado</th>
       <td mat-cell *matCellDef="let element">
-        <button *ngIf="element.aprobado" mat-button color="accent">
-          {{element.aprobado?'reincribir':'recursar'}}
+
+
+        <button *ngIf="element.becado" mat-button color="accent">
+
+          {{'reincribir'}}
         </button>
 
-        <button *ngIf="!element.aprobado" mat-button color="warn">
-          {{element.aprobado?'reincribir':'recursar'}}
+        <button *ngIf="!element.becado" mat-button color="warn">
+          {{ 'recursar'}}
         </button>
 
       </td>

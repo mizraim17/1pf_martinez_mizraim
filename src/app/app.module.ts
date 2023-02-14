@@ -12,6 +12,7 @@ import { EditarEstudianteComponent } from './components/editar-estudiante/editar
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontSizePipe } from './pipes/font-size.pipe';
+import { FontSizeDirective } from './directives/font-size.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FontSizePipe } from './pipes/font-size.pipe';
     TablaComponent,
     EditarEstudianteComponent,
     FontSizePipe,
+    FontSizeDirective,
   ],
   imports: [
     BrowserModule,
