@@ -8,7 +8,7 @@
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="inputEmail4" formControlName="nombre">
-      <div class="valido" *ngIf="  formulario.controls['nombre'].touched && formulario.controls['nombre'].valid ">
+      <div class="valido" *ngIf="formulario.controls['nombre'].touched && formulario.controls['nombre'].valid ">
         Es Válido
       </div>
       <div class="invalido"

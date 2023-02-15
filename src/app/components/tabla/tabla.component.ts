@@ -94,19 +94,15 @@ export class TablaComponent {
     });
   }
 
-  eliminarDatos(element: Estudiante) {
-    console.log('entro a eliminar', element);
+  eliminarDatos(i: number) {
+    console.log('entro a eliminar', i);
 
     let arr_copy = [...this.estudiantes];
-    console.log('arr_copy ', arr_copy);
 
-    arr_copy.forEach(function (currentValue, index, arr) {
-      if (arr_copy[index] == element) {
-        arr_copy.splice(index, 1);
-      }
-    });
-    console.log('arr_copy ', arr_copy);
+    arr_copy.splice(i, 1);
 
     this.estudiantes = arr_copy;
+
+    this.dataSource = new MatTableDataSource(this.estudiantes);
   }
 }
